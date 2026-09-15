@@ -14,7 +14,7 @@ const pesquisa = document.getElementById("pesquisa");
 
 
 // Lista temporária de clientes
-let clientes = [];
+
 
 
 // CADASTRAR CLIENTE
