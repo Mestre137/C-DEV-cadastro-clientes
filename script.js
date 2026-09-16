@@ -1,3 +1,7 @@
+// ==========================================
+// CONEXÃO COM O SUPABASE
+// ==========================================
+
 const SUPABASE_URL = "COLE_AQUI_A_PROJECT_URL";
 const SUPABASE_PUBLISHABLE_KEY = "COLE_AQUI_A_PUBLISHABLE_KEY";
 
@@ -6,59 +10,134 @@ const supabaseClient = window.supabase.createClient(
     SUPABASE_PUBLISHABLE_KEY
 );
 
+
+// ==========================================
+// ELEMENTOS DA PÁGINA
+// ==========================================
+
 const clienteForm = document.getElementById("clienteForm");
-
 const listaClientes = document.getElementById("listaClientes");
-
 const pesquisa = document.getElementById("pesquisa");
 
 
-// Lista temporária de clientes
+// Lista que ficará sincronizada com o Supabase
 let clientes = [];
 
 
-// CADASTRAR CLIENTE
+// ==========================================
+// CARREGAR CLIENTES DO SUPABASE
+// ==========================================
 
-clienteForm.addEventListener("submit", function(event) {
+async function carregarClientes() {
+
+    const { data, error } = await supabaseClient
+        .from("clientes")
+        .select("*")
+        .order("created_at", { ascending: false });
+
+    if (error) {
+
+        console.error("Erro ao carregar clientes:", error);
+
+        listaClientes.innerHTML = `
+            <p class="vazio">
+                Erro ao carregar clientes.
+            </p>
+        `;
+
+        return;
+    }
+
+    clientes = data || [];
+
+    mostrarClientes();
+}
+
+
+// ==========================================
+// CADASTRAR CLIENTE
+// ==========================================
+
+clienteForm.addEventListener("submit", async function(event) {
 
     event.preventDefault();
 
-    const nome = document.getElementById("nome").value;
-    const telefone = document.getElementById("telefone").value;
-    const email = document.getElementById("email").value;
-    const cidade = document.getElementById("cidade").value;
-    const observacoes = document.getElementById("observacoes").value;
+
+    const nome = document.getElementById("nome").value.trim();
+    const telefone = document.getElementById("telefone").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const cidade = document.getElementById("cidade").value.trim();
+    const observacoes = document.getElementById("observacoes").value.trim();
 
 
-    const cliente = {
+    if (!nome) {
 
-        id: Date.now(),
+        alert("Digite o nome do cliente.");
 
-        nome: nome,
-
-        telefone: telefone,
-
-        email: email,
-
-        cidade: cidade,
-
-        observacoes: observacoes
-
-    };
+        return;
+    }
 
 
-    clientes.push(cliente);
+    // Desabilita o botão durante o salvamento
+    const botao = clienteForm.querySelector("button");
+
+    botao.disabled = true;
+    botao.textContent = "Salvando...";
 
 
+    // Envia o cliente para o Supabase
+    const { data, error } = await supabaseClient
+        .from("clientes")
+        .insert([
+            {
+                nome: nome,
+                telefone: telefone,
+                email: email,
+                cidade: cidade,
+                observacoes: observacoes
+            }
+        ])
+        .select();
+
+
+    if (error) {
+
+        console.error("Erro ao salvar cliente:", error);
+
+        alert(
+            "Não foi possível salvar o cliente.\n\n" +
+            "Erro: " + error.message
+        );
+
+        botao.disabled = false;
+        botao.textContent = "Cadastrar Cliente";
+
+        return;
+    }
+
+
+    console.log("Cliente salvo:", data);
+
+
+    // Limpa o formulário
     clienteForm.reset();
 
 
-    mostrarClientes();
+    // Atualiza a lista
+    await carregarClientes();
 
+
+    botao.disabled = false;
+    botao.textContent = "Cadastrar Cliente";
+
+
+    alert("Cliente cadastrado com sucesso!");
 });
 
 
+// ==========================================
 // MOSTRAR CLIENTES
+// ==========================================
 
 function mostrarClientes(lista = clientes) {
 
@@ -86,23 +165,23 @@ function mostrarClientes(lista = clientes) {
 
         div.innerHTML = `
 
-            <h3>${cliente.nome}</h3>
+            <h3>${escaparHTML(cliente.nome)}</h3>
 
             <p>
-                📞 ${cliente.telefone || "Não informado"}
+                📞 ${escaparHTML(cliente.telefone || "Não informado")}
             </p>
 
             <p>
-                📧 ${cliente.email || "Não informado"}
+                📧 ${escaparHTML(cliente.email || "Não informado")}
             </p>
 
             <p>
-                📍 ${cliente.cidade || "Não informado"}
+                📍 ${escaparHTML(cliente.cidade || "Não informado")}
             </p>
 
             ${
                 cliente.observacoes
-                ? `<p>📝 ${cliente.observacoes}</p>`
+                ? `<p>📝 ${escaparHTML(cliente.observacoes)}</p>`
                 : ""
             }
 
@@ -112,22 +191,24 @@ function mostrarClientes(lista = clientes) {
         listaClientes.appendChild(div);
 
     });
-
 }
 
 
+// ==========================================
 // PESQUISAR CLIENTE
+// ==========================================
 
 pesquisa.addEventListener("input", function() {
 
-    const texto = pesquisa.value.toLowerCase();
+    const texto = pesquisa.value.toLowerCase().trim();
 
 
     const resultado = clientes.filter(function(cliente) {
 
-        return cliente.nome
-            .toLowerCase()
-            .includes(texto);
+        return (
+            cliente.nome &&
+            cliente.nome.toLowerCase().includes(texto)
+        );
 
     });
 
@@ -135,3 +216,24 @@ pesquisa.addEventListener("input", function() {
     mostrarClientes(resultado);
 
 });
+
+
+// ==========================================
+// PROTEÇÃO DO TEXTO EXIBIDO NA PÁGINA
+// ==========================================
+
+function escaparHTML(texto) {
+
+    const div = document.createElement("div");
+
+    div.textContent = texto;
+
+    return div.innerHTML;
+}
+
+
+// ==========================================
+// INICIAR SISTEMA
+// ==========================================
+
+carregarClientes();
