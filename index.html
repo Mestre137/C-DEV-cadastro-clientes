@@ -6,74 +6,188 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Cadastro de Clientes</title>
+    <title>Morena Jey | Clientes</title>
 
     <link rel="stylesheet" href="style.css">
+
+    <!-- Supabase -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 
 <body>
 
-    <header>
-        <h1>Cadastro de Clientes</h1>
-        <p>Gerencie seus clientes de forma simples</p>
+    <!-- CABEÇALHO -->
+    <header class="topo">
+
+        <div class="logo">
+            <span>MORENA</span>
+            <strong>JEY</strong>
+        </div>
+
+        <p>Clientes & Atendimento</p>
+
     </header>
 
+
+    <!-- CONTEÚDO PRINCIPAL -->
     <main>
 
+        <!-- APRESENTAÇÃO -->
+        <section class="boas-vindas">
+
+            <div>
+                <span class="tag">GESTÃO DE CLIENTES</span>
+
+                <h1>
+                    Olá! Seja bem-vinda. ✨
+                </h1>
+
+                <p>
+                    Cadastre suas clientes e mantenha
+                    suas informações organizadas.
+                </p>
+            </div>
+
+        </section>
+
+
+        <!-- RESUMO -->
+        <section class="resumo">
+
+            <div class="resumo-card">
+
+                <div class="icone">
+                    👩
+                </div>
+
+                <div>
+                    <span>Clientes</span>
+                    <strong id="totalClientes">0</strong>
+                </div>
+
+            </div>
+
+
+            <div class="resumo-card">
+
+                <div class="icone">
+                    ✨
+                </div>
+
+                <div>
+                    <span>Cadastros</span>
+                    <strong id="totalCadastros">0</strong>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- CADASTRO -->
         <section class="card">
 
-            <h2>Novo Cliente</h2>
+            <div class="titulo-secao">
+
+                <div>
+                    <span class="mini-titulo">
+                        NOVO CADASTRO
+                    </span>
+
+                    <h2>
+                        Cadastrar cliente
+                    </h2>
+                </div>
+
+            </div>
+
 
             <form id="clienteForm">
 
                 <div class="campo">
-                    <label for="nome">Nome completo</label>
+
+                    <label for="nome">
+                        Nome completo
+                    </label>
+
                     <input
                         type="text"
                         id="nome"
-                        placeholder="Digite o nome do cliente"
+                        placeholder="Digite o nome da cliente"
                         required
                     >
+
                 </div>
 
-                <div class="campo">
-                    <label for="telefone">Telefone</label>
-                    <input
-                        type="tel"
-                        id="telefone"
-                        placeholder="(11) 99999-9999"
-                    >
+
+                <div class="duas-colunas">
+
+                    <div class="campo">
+
+                        <label for="telefone">
+                            Telefone
+                        </label>
+
+                        <input
+                            type="tel"
+                            id="telefone"
+                            placeholder="(11) 99999-9999"
+                        >
+
+                    </div>
+
+
+                    <div class="campo">
+
+                        <label for="email">
+                            E-mail
+                        </label>
+
+                        <input
+                            type="email"
+                            id="email"
+                            placeholder="cliente@email.com"
+                        >
+
+                    </div>
+
                 </div>
 
-                <div class="campo">
-                    <label for="email">E-mail</label>
-                    <input
-                        type="email"
-                        id="email"
-                        placeholder="cliente@email.com"
-                    >
-                </div>
 
                 <div class="campo">
-                    <label for="cidade">Cidade</label>
+
+                    <label for="cidade">
+                        Cidade
+                    </label>
+
                     <input
                         type="text"
                         id="cidade"
                         placeholder="Digite a cidade"
                     >
+
                 </div>
 
+
                 <div class="campo">
-                    <label for="observacoes">Observações</label>
+
+                    <label for="observacoes">
+                        Observações
+                    </label>
 
                     <textarea
                         id="observacoes"
-                        placeholder="Digite alguma observação"
+                        placeholder="Ex.: gosta de maquiagem, prefere determinada marca..."
                     ></textarea>
+
                 </div>
 
-                <button type="submit">
-                    Cadastrar Cliente
+
+                <button type="submit" class="botao-principal">
+
+                    <span>＋</span>
+                    Cadastrar cliente
+
                 </button>
 
             </form>
@@ -81,20 +195,43 @@
         </section>
 
 
-        <section class="card">
+        <!-- LISTA DE CLIENTES -->
+        <section class="card clientes-card">
 
-            <h2>Clientes cadastrados</h2>
+            <div class="titulo-secao">
 
-            <input
-                type="text"
-                id="pesquisa"
-                placeholder="🔎 Pesquisar cliente..."
-            >
+                <div>
+
+                    <span class="mini-titulo">
+                        MINHAS CLIENTES
+                    </span>
+
+                    <h2>
+                        Clientes cadastradas
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <div class="pesquisa-container">
+
+                <span>⌕</span>
+
+                <input
+                    type="text"
+                    id="pesquisa"
+                    placeholder="Pesquisar cliente..."
+                >
+
+            </div>
+
 
             <div id="listaClientes">
 
                 <p class="vazio">
-                    Nenhum cliente cadastrado.
+                    Nenhuma cliente cadastrada.
                 </p>
 
             </div>
@@ -102,8 +239,24 @@
         </section>
 
     </main>
-    
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+
+    <!-- RODAPÉ -->
+    <footer>
+
+        <div class="logo logo-footer">
+            <span>MORENA</span>
+            <strong>JEY</strong>
+        </div>
+
+        <p>
+            Beleza que valoriza você.
+        </p>
+
+    </footer>
+
+
+    <!-- JAVASCRIPT -->
     <script src="script.js"></script>
 
 </body>

@@ -1,150 +1,958 @@
+/* =========================================
+   MORENA JEY
+   ESTILO VIVO • FEMININO • ELEGANTE
+========================================= */
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+:root {
+    --marrom: #4b2923;
+    --marrom-escuro: #281512;
+
+    --rosa: #c47f7a;
+    --rosa-claro: #e7b7b0;
+    --rosa-suave: #f6e2de;
+
+    --nude: #ead2c2;
+    --bege: #fbf2eb;
+
+    --dourado: #c59a52;
+    --dourado-claro: #e4c786;
+
+    --branco: #ffffff;
+
+    --texto: #3d2924;
+    --cinza: #806e67;
+
+    --borda: #eadbd3;
+}
+
+
+/* =========================================
+   BODY
+========================================= */
+
 body {
-    font-family: Arial, sans-serif;
-    background: #f4f4f4;
-    color: #333;
+    font-family: Arial, Helvetica, sans-serif;
+
+    color: var(--texto);
+
+    min-height: 100vh;
+
+    background:
+        radial-gradient(
+            circle at 10% 10%,
+            rgba(231, 183, 176, 0.35),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 90% 20%,
+            rgba(229, 199, 134, 0.22),
+            transparent 28%
+        ),
+        linear-gradient(
+            135deg,
+            #fffaf7,
+            var(--bege)
+        );
 }
 
-header {
-    background: #222;
+
+/* =========================================
+   TOPO
+========================================= */
+
+.topo {
+    position: relative;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--marrom-escuro),
+            var(--marrom),
+            #6d3d34
+        );
+
     color: white;
+
+    padding: 28px 20px;
+
     text-align: center;
-    padding: 30px 20px;
+
+    border-bottom: 3px solid var(--dourado);
+
+    box-shadow:
+        0 5px 25px rgba(75, 41, 35, 0.25);
 }
 
-header h1 {
-    margin-bottom: 8px;
+
+/* brilho decorativo */
+
+.topo::before {
+    content: "";
+
+    position: absolute;
+
+    width: 180px;
+    height: 180px;
+
+    border-radius: 50%;
+
+    background: rgba(231, 183, 176, 0.15);
+
+    top: -100px;
+    left: -50px;
 }
 
-header p {
-    color: #ccc;
+.topo::after {
+    content: "";
+
+    position: absolute;
+
+    width: 160px;
+    height: 160px;
+
+    border-radius: 50%;
+
+    background: rgba(229, 199, 134, 0.12);
+
+    right: -50px;
+    bottom: -90px;
 }
+
+
+/* =========================================
+   LOGO
+========================================= */
+
+.logo {
+    position: relative;
+
+    z-index: 2;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 7px;
+
+    letter-spacing: 2px;
+}
+
+.logo span {
+    font-family: Georgia, serif;
+
+    font-size: 26px;
+
+    font-weight: normal;
+}
+
+.logo strong {
+    font-family: Georgia, serif;
+
+    font-size: 31px;
+
+    color: var(--dourado-claro);
+
+    text-shadow:
+        0 0 12px rgba(229, 199, 134, 0.25);
+}
+
+.topo p {
+    position: relative;
+
+    z-index: 2;
+
+    margin-top: 7px;
+
+    color: #f0ded7;
+
+    font-size: 13px;
+
+    letter-spacing: 1px;
+}
+
+
+/* =========================================
+   CONTEÚDO
+========================================= */
 
 main {
-    width: 90%;
-    max-width: 1000px;
-    margin: 30px auto;
+    width: 92%;
 
+    max-width: 900px;
+
+    margin: 35px auto 55px;
+}
+
+
+/* =========================================
+   BOAS-VINDAS
+========================================= */
+
+.boas-vindas {
+    position: relative;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffffff,
+            #fff5f1
+        );
+
+    padding: 35px;
+
+    border-radius: 22px;
+
+    margin-bottom: 20px;
+
+    border: 1px solid rgba(196, 127, 122, 0.18);
+
+    box-shadow:
+        0 12px 35px rgba(75, 41, 35, 0.10);
+}
+
+
+/* elemento decorativo */
+
+.boas-vindas::after {
+    content: "✦";
+
+    position: absolute;
+
+    right: 35px;
+    top: 25px;
+
+    font-size: 45px;
+
+    color: var(--dourado-claro);
+
+    opacity: 0.45;
+
+    animation: brilho 2.5s infinite;
+}
+
+
+.tag {
+    display: inline-block;
+
+    color: var(--rosa);
+
+    background: var(--rosa-suave);
+
+    padding: 7px 12px;
+
+    border-radius: 30px;
+
+    font-size: 10px;
+
+    font-weight: bold;
+
+    letter-spacing: 1.8px;
+
+    margin-bottom: 12px;
+}
+
+
+.boas-vindas h1 {
+    font-family: Georgia, serif;
+
+    color: var(--marrom);
+
+    font-size: 31px;
+
+    margin-bottom: 10px;
+}
+
+.boas-vindas p {
+    color: var(--cinza);
+
+    line-height: 1.7;
+
+    max-width: 620px;
+}
+
+
+/* =========================================
+   RESUMO
+========================================= */
+
+.resumo {
     display: grid;
+
     grid-template-columns: 1fr 1fr;
-    gap: 25px;
-}
 
-.card {
-    background: white;
-    padding: 25px;
-    border-radius: 12px;
+    gap: 18px;
 
-    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.08);
-}
-
-.card h2 {
     margin-bottom: 20px;
 }
 
-.campo {
-    margin-bottom: 15px;
+
+.resumo-card {
+    position: relative;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffffff,
+            #fff7f4
+        );
+
+    border-radius: 18px;
+
+    padding: 21px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    border: 1px solid var(--borda);
+
+    box-shadow:
+        0 8px 25px rgba(75, 41, 35, 0.08);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
 }
+
+
+.resumo-card:hover {
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 14px 30px rgba(75, 41, 35, 0.13);
+}
+
+
+.resumo-card::after {
+    content: "";
+
+    position: absolute;
+
+    width: 90px;
+    height: 90px;
+
+    border-radius: 50%;
+
+    background: var(--rosa-suave);
+
+    right: -35px;
+    top: -35px;
+
+    opacity: 0.7;
+}
+
+
+.icone {
+    position: relative;
+
+    z-index: 1;
+
+    width: 50px;
+    height: 50px;
+
+    flex-shrink: 0;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--rosa-claro),
+            var(--rosa)
+        );
+
+    color: white;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    font-size: 22px;
+
+    box-shadow:
+        0 5px 15px rgba(196, 127, 122, 0.3);
+}
+
+
+.resumo-card div:last-child {
+    position: relative;
+
+    z-index: 1;
+}
+
+
+.resumo-card span {
+    display: block;
+
+    color: var(--cinza);
+
+    font-size: 13px;
+
+    margin-bottom: 4px;
+}
+
+
+.resumo-card strong {
+    display: block;
+
+    color: var(--marrom);
+
+    font-family: Georgia, serif;
+
+    font-size: 27px;
+}
+
+
+/* =========================================
+   CARDS
+========================================= */
+
+.card {
+    background:
+        rgba(255, 255, 255, 0.96);
+
+    padding: 30px;
+
+    border-radius: 20px;
+
+    margin-bottom: 20px;
+
+    border: 1px solid rgba(234, 219, 211, 0.9);
+
+    box-shadow:
+        0 10px 30px rgba(75, 41, 35, 0.08);
+}
+
+
+.titulo-secao {
+    margin-bottom: 23px;
+}
+
+
+.mini-titulo {
+    color: var(--dourado);
+
+    font-size: 10px;
+
+    font-weight: bold;
+
+    letter-spacing: 2px;
+}
+
+
+.titulo-secao h2 {
+    font-family: Georgia, serif;
+
+    color: var(--marrom);
+
+    font-size: 25px;
+
+    margin-top: 5px;
+}
+
+
+/* =========================================
+   FORMULÁRIO
+========================================= */
+
+.campo {
+    margin-bottom: 17px;
+}
+
 
 .campo label {
     display: block;
-    margin-bottom: 6px;
+
+    margin-bottom: 7px;
+
+    color: var(--marrom);
+
+    font-size: 14px;
+
     font-weight: bold;
 }
+
 
 input,
 textarea {
     width: 100%;
-    padding: 12px;
 
-    border: 1px solid #ccc;
-    border-radius: 8px;
+    padding: 14px;
 
-    font-size: 16px;
+    border: 1px solid var(--borda);
+
+    border-radius: 11px;
+
+    background: #fffdfc;
+
+    color: var(--texto);
+
+    font-family: Arial, sans-serif;
+
+    font-size: 15px;
+
+    transition:
+        border-color 0.2s,
+        box-shadow 0.2s,
+        transform 0.2s;
 }
 
-textarea {
-    height: 100px;
-    resize: vertical;
+
+input:hover,
+textarea:hover {
+    border-color: var(--rosa-claro);
 }
+
 
 input:focus,
 textarea:focus {
     outline: none;
-    border-color: #555;
+
+    border-color: var(--rosa);
+
+    box-shadow:
+        0 0 0 4px rgba(196, 127, 122, 0.12);
 }
 
-button {
+
+textarea {
+    min-height: 110px;
+
+    resize: vertical;
+}
+
+
+.duas-colunas {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 15px;
+}
+
+
+/* =========================================
+   BOTÃO
+========================================= */
+
+.botao-principal {
+    position: relative;
+
+    overflow: hidden;
+
     width: 100%;
-    padding: 13px;
+
+    padding: 15px;
 
     border: none;
-    border-radius: 8px;
 
-    background: #222;
+    border-radius: 11px;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--marrom),
+            #6b3b32
+        );
+
     color: white;
 
-    font-size: 16px;
+    font-size: 15px;
+
     font-weight: bold;
 
     cursor: pointer;
+
+    transition:
+        transform 0.2s,
+        box-shadow 0.2s;
 }
 
-button:hover {
-    background: #444;
+
+.botao-principal::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: -100%;
+
+    width: 60%;
+    height: 100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,0.22),
+            transparent
+        );
+
+    transition: left 0.5s;
 }
 
-#pesquisa {
+
+.botao-principal:hover::before {
+    left: 130%;
+}
+
+
+.botao-principal:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 9px 22px rgba(75, 41, 35, 0.25);
+}
+
+
+.botao-principal:active {
+    transform: translateY(0);
+}
+
+
+.botao-principal span {
+    color: var(--dourado-claro);
+
+    font-size: 18px;
+}
+
+
+.botao-principal:disabled {
+    opacity: 0.6;
+
+    cursor: not-allowed;
+
+    transform: none;
+}
+
+
+/* =========================================
+   PESQUISA
+========================================= */
+
+.pesquisa-container {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fffaf8,
+            #fff5f1
+        );
+
+    border: 1px solid var(--borda);
+
+    border-radius: 11px;
+
+    padding: 0 14px;
+
     margin-bottom: 20px;
+
+    transition: 0.2s;
 }
+
+
+.pesquisa-container:focus-within {
+    border-color: var(--rosa);
+
+    box-shadow:
+        0 0 0 4px rgba(196, 127, 122, 0.10);
+}
+
+
+.pesquisa-container span {
+    color: var(--rosa);
+
+    font-size: 25px;
+}
+
+
+.pesquisa-container input {
+    border: none;
+
+    background: transparent;
+
+    box-shadow: none;
+
+    padding-left: 0;
+}
+
+
+.pesquisa-container input:focus {
+    box-shadow: none;
+
+    border: none;
+}
+
+
+/* =========================================
+   CLIENTES
+========================================= */
 
 .cliente {
-    border: 1px solid #ddd;
-    border-radius: 8px;
+    position: relative;
 
-    padding: 15px;
+    border: 1px solid var(--borda);
+
+    border-left: 4px solid var(--rosa);
+
+    border-radius: 12px;
+
+    padding: 18px;
+
     margin-bottom: 12px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fffdfc,
+            #fff7f4
+        );
+
+    transition:
+        transform 0.2s,
+        box-shadow 0.2s;
 }
 
+
+.cliente:hover {
+    transform: translateX(4px);
+
+    box-shadow:
+        0 7px 20px rgba(75, 41, 35, 0.09);
+}
+
+
 .cliente h3 {
+    color: var(--marrom);
+
+    font-family: Georgia, serif;
+
+    font-size: 19px;
+
+    margin-bottom: 9px;
+}
+
+
+.cliente p {
+    color: var(--cinza);
+
+    font-size: 14px;
+
+    margin: 6px 0;
+}
+
+
+/* =========================================
+   VAZIO
+========================================= */
+
+.vazio {
+    text-align: center;
+
+    color: var(--cinza);
+
+    padding: 28px;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--bege),
+            #fff8f4
+        );
+
+    border-radius: 12px;
+
+    border: 1px dashed var(--nude);
+
+    font-size: 14px;
+}
+
+
+/* =========================================
+   RODAPÉ
+========================================= */
+
+footer {
+    text-align: center;
+
+    padding: 32px 20px;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--marrom-escuro),
+            var(--marrom)
+        );
+
+    color: #d8cbc4;
+}
+
+
+.logo-footer {
     margin-bottom: 8px;
 }
 
-.cliente p {
-    margin: 5px 0;
-}
 
-.vazio {
-    color: #888;
-    text-align: center;
-    padding: 20px;
+.logo-footer span {
+    font-size: 18px;
 }
 
 
-/* CELULAR */
+.logo-footer strong {
+    font-size: 22px;
+}
+
+
+footer p {
+    font-size: 12px;
+
+    color: #b8aaa3;
+}
+
+
+/* =========================================
+   ANIMAÇÃO
+========================================= */
+
+@keyframes brilho {
+
+    0%,
+    100% {
+        transform: scale(1) rotate(0deg);
+
+        opacity: 0.35;
+    }
+
+    50% {
+        transform: scale(1.15) rotate(10deg);
+
+        opacity: 0.7;
+    }
+}
+
+
+/* =========================================
+   CELULAR
+========================================= */
 
 @media (max-width: 700px) {
 
     main {
-        width: 95%;
-        grid-template-columns: 1fr;
-        margin: 20px auto;
+        width: 94%;
+
+        margin-top: 22px;
     }
 
-    header {
-        padding: 25px 15px;
+
+    .topo {
+        padding: 22px 15px;
     }
 
-    header h1 {
+
+    .logo span {
+        font-size: 21px;
+    }
+
+
+    .logo strong {
+        font-size: 26px;
+    }
+
+
+    .boas-vindas {
+        padding: 25px;
+
+        border-radius: 17px;
+    }
+
+
+    .boas-vindas h1 {
         font-size: 25px;
     }
 
-    .card {
-        padding: 20px;
+
+    .boas-vindas::after {
+        right: 20px;
+
+        font-size: 35px;
     }
+
+
+    .resumo {
+        gap: 10px;
+    }
+
+
+    .resumo-card {
+        padding: 15px;
+
+        gap: 10px;
+    }
+
+
+    .icone {
+        width: 42px;
+        height: 42px;
+
+        font-size: 18px;
+    }
+
+
+    .resumo-card strong {
+        font-size: 22px;
+    }
+
+
+    .card {
+        padding: 21px;
+
+        border-radius: 16px;
+    }
+
+
+    .titulo-secao h2 {
+        font-size: 21px;
+    }
+
+
+    .duas-colunas {
+        grid-template-columns: 1fr;
+
+        gap: 0;
+    }
+
+}
+
+
+@media (max-width: 400px) {
+
+    .resumo-card {
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
 }
