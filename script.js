@@ -12,6 +12,54 @@ const supabaseClient = window.supabase.createClient(
 
 
 // ==========================================
+// LOGOUT
+// ==========================================
+
+const botaoSair =
+    document.getElementById("botaoSair");
+
+
+if (botaoSair) {
+
+    botaoSair.addEventListener(
+        "click",
+        async function() {
+
+            await supabaseClient.auth.signOut();
+
+            window.location.href =
+                "login.html";
+
+        }
+    );
+
+}
+
+// ==========================================
+// PROTEGER ÁREA DE CLIENTES
+// ==========================================
+
+async function protegerPagina() {
+
+    const {
+        data: {
+            session
+        }
+    } = await supabaseClient.auth.getSession();
+
+
+    if (!session) {
+
+        window.location.href = "login.html";
+
+        return false;
+    }
+
+
+    return true;
+}
+
+// ==========================================
 // ELEMENTOS DA PÁGINA
 // ==========================================
 
@@ -242,4 +290,12 @@ function escaparHTML(texto) {
 // INICIAR SISTEMA
 // ==========================================
 
-carregarClientes();
+protegerPagina().then(function(logado) {
+
+    if (logado) {
+
+        carregarClientes();
+
+    }
+
+});
