@@ -1,7 +1,39 @@
 /* =========================================
    MORENA JEY
-   ESTILO VIVO • FEMININO • ELEGANTE
-========================================= */
+   SISTEMA DE CLIENTES
+   ========================================= */
+
+:root {
+    --marrom-escuro: #241411;
+    --marrom: #4b2923;
+    --marrom-claro: #70443a;
+
+    --nude: #e8cfc0;
+    --nude-claro: #f6e7df;
+
+    --bege: #fbf4ed;
+    --bege-escuro: #ead9cc;
+
+    --rosa: #c98582;
+    --rosa-claro: #e9b9b3;
+
+    --dourado: #c49a55;
+    --dourado-claro: #e5c98d;
+
+    --branco: #ffffff;
+    --texto: #39231f;
+    --texto-claro: #765f58;
+
+    --sombra: 0 12px 35px rgba(65, 35, 27, 0.10);
+    --sombra-forte: 0 18px 45px rgba(65, 35, 27, 0.16);
+
+    --raio: 22px;
+}
+
+
+/* =========================================
+   RESET
+   ========================================= */
 
 * {
     margin: 0;
@@ -9,94 +41,64 @@
     box-sizing: border-box;
 }
 
-:root {
-    --marrom: #4b2923;
-    --marrom-escuro: #281512;
 
-    --rosa: #c47f7a;
-    --rosa-claro: #e7b7b0;
-    --rosa-suave: #f6e2de;
-
-    --nude: #ead2c2;
-    --bege: #fbf2eb;
-
-    --dourado: #c59a52;
-    --dourado-claro: #e4c786;
-
-    --branco: #ffffff;
-
-    --texto: #3d2924;
-    --cinza: #806e67;
-
-    --borda: #eadbd3;
+html {
+    scroll-behavior: smooth;
 }
 
-
-/* =========================================
-   BODY
-========================================= */
 
 body {
     font-family: Arial, Helvetica, sans-serif;
-
-    color: var(--texto);
-
-    min-height: 100vh;
-
     background:
         radial-gradient(
-            circle at 10% 10%,
-            rgba(231, 183, 176, 0.35),
+            circle at top left,
+            rgba(201, 154, 82, 0.10),
             transparent 30%
-        ),
-        radial-gradient(
-            circle at 90% 20%,
-            rgba(229, 199, 134, 0.22),
-            transparent 28%
         ),
         linear-gradient(
             135deg,
-            #fffaf7,
-            var(--bege)
+            #f8eee8 0%,
+            #fdf8f4 50%,
+            #f2dfd4 100%
         );
+
+    color: var(--texto);
+    min-height: 100vh;
 }
 
 
 /* =========================================
-   TOPO
-========================================= */
+   CABEÇALHO
+   ========================================= */
 
 .topo {
     position: relative;
-
     overflow: hidden;
 
     background:
         linear-gradient(
             135deg,
-            var(--marrom-escuro),
-            var(--marrom),
-            #6d3d34
+            #291613,
+            #4b2923 55%,
+            #6d4137
         );
 
     color: white;
 
-    padding: 28px 20px;
-
     text-align: center;
+
+    padding: 32px 20px 38px;
 
     border-bottom: 3px solid var(--dourado);
 
-    box-shadow:
-        0 5px 25px rgba(75, 41, 35, 0.25);
+    box-shadow: 0 8px 30px rgba(36, 20, 17, 0.20);
 }
 
 
-/* brilho decorativo */
+/* círculos decorativos */
 
 .topo::before {
     content: "";
-
     position: absolute;
 
     width: 180px;
@@ -104,238 +106,218 @@ body {
 
     border-radius: 50%;
 
-    background: rgba(231, 183, 176, 0.15);
+    background: rgba(255,255,255,0.06);
 
-    top: -100px;
-    left: -50px;
+    left: -60px;
+    top: -80px;
 }
+
 
 .topo::after {
     content: "";
-
     position: absolute;
 
-    width: 160px;
-    height: 160px;
+    width: 220px;
+    height: 220px;
 
     border-radius: 50%;
 
-    background: rgba(229, 199, 134, 0.12);
+    background: rgba(229,201,141,0.08);
 
-    right: -50px;
-    bottom: -90px;
+    right: -80px;
+    bottom: -130px;
 }
 
 
 /* =========================================
    LOGO
-========================================= */
+   ========================================= */
 
 .logo {
     position: relative;
-
     z-index: 2;
 
     display: flex;
-
     justify-content: center;
-
     align-items: center;
+    gap: 8px;
 
-    gap: 7px;
+    font-family: Georgia, "Times New Roman", serif;
 
-    letter-spacing: 2px;
+    font-size: 30px;
+    letter-spacing: 3px;
 }
+
 
 .logo span {
-    font-family: Georgia, serif;
-
-    font-size: 26px;
-
-    font-weight: normal;
+    color: white;
 }
+
 
 .logo strong {
-    font-family: Georgia, serif;
-
-    font-size: 31px;
-
     color: var(--dourado-claro);
-
-    text-shadow:
-        0 0 12px rgba(229, 199, 134, 0.25);
 }
+
 
 .topo p {
     position: relative;
-
     z-index: 2;
 
-    margin-top: 7px;
+    margin-top: 8px;
 
-    color: #f0ded7;
+    font-size: 14px;
 
-    font-size: 13px;
+    letter-spacing: 1.5px;
 
-    letter-spacing: 1px;
+    color: #ead9d1;
 }
 
 
 /* =========================================
-   CONTEÚDO
-========================================= */
+   CONTEÚDO PRINCIPAL
+   ========================================= */
 
 main {
-    width: 92%;
+    width: min(1100px, 92%);
 
-    max-width: 900px;
-
-    margin: 35px auto 55px;
+    margin: 35px auto 60px;
 }
 
 
 /* =========================================
    BOAS-VINDAS
-========================================= */
+   ========================================= */
 
 .boas-vindas {
     position: relative;
-
     overflow: hidden;
 
     background:
         linear-gradient(
             135deg,
-            #ffffff,
-            #fff5f1
+            rgba(255,255,255,0.97),
+            rgba(250,231,224,0.96)
         );
 
-    padding: 35px;
+    border: 1px solid rgba(196,154,85,0.20);
 
-    border-radius: 22px;
+    border-radius: 28px;
 
-    margin-bottom: 20px;
+    padding: 42px;
 
-    border: 1px solid rgba(196, 127, 122, 0.18);
+    margin-bottom: 24px;
 
-    box-shadow:
-        0 12px 35px rgba(75, 41, 35, 0.10);
+    box-shadow: var(--sombra);
 }
 
-
-/* elemento decorativo */
 
 .boas-vindas::after {
     content: "✦";
 
     position: absolute;
 
-    right: 35px;
+    right: 45px;
     top: 25px;
 
-    font-size: 45px;
+    font-size: 75px;
 
     color: var(--dourado-claro);
 
-    opacity: 0.45;
+    opacity: 0.55;
 
-    animation: brilho 2.5s infinite;
+    transform: rotate(15deg);
 }
 
 
 .tag {
     display: inline-block;
 
-    color: var(--rosa);
+    background: var(--rosa-claro);
 
-    background: var(--rosa-suave);
+    color: var(--marrom);
 
-    padding: 7px 12px;
+    padding: 8px 14px;
 
-    border-radius: 30px;
+    border-radius: 50px;
 
-    font-size: 10px;
+    font-size: 11px;
 
     font-weight: bold;
 
-    letter-spacing: 1.8px;
+    letter-spacing: 2px;
 
-    margin-bottom: 12px;
+    margin-bottom: 15px;
 }
 
 
 .boas-vindas h1 {
-    font-family: Georgia, serif;
+    position: relative;
+    z-index: 1;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: clamp(28px, 5vw, 42px);
 
     color: var(--marrom);
-
-    font-size: 31px;
 
     margin-bottom: 10px;
 }
 
+
 .boas-vindas p {
-    color: var(--cinza);
+    color: var(--texto-claro);
+
+    font-size: 16px;
+
+    max-width: 650px;
 
     line-height: 1.7;
-
-    max-width: 620px;
 }
 
 
 /* =========================================
-   RESUMO
-========================================= */
+   RESUMO / ESTATÍSTICAS
+   ========================================= */
 
 .resumo {
     display: grid;
 
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, 1fr);
 
-    gap: 18px;
+    gap: 20px;
 
-    margin-bottom: 20px;
+    margin-bottom: 25px;
 }
 
 
 .resumo-card {
     position: relative;
-
     overflow: hidden;
-
-    background:
-        linear-gradient(
-            135deg,
-            #ffffff,
-            #fff7f4
-        );
-
-    border-radius: 18px;
-
-    padding: 21px;
 
     display: flex;
 
     align-items: center;
 
-    gap: 15px;
+    gap: 18px;
 
-    border: 1px solid var(--borda);
+    background: rgba(255,255,255,0.92);
 
-    box-shadow:
-        0 8px 25px rgba(75, 41, 35, 0.08);
+    border: 1px solid rgba(196,154,85,0.20);
 
-    transition:
-        transform 0.25s ease,
-        box-shadow 0.25s ease;
+    border-radius: 20px;
+
+    padding: 22px 25px;
+
+    box-shadow: var(--sombra);
+
+    transition: 0.3s ease;
 }
 
 
 .resumo-card:hover {
-    transform: translateY(-4px);
+    transform: translateY(-5px);
 
-    box-shadow:
-        0 14px 30px rgba(75, 41, 35, 0.13);
+    box-shadow: var(--sombra-forte);
 }
 
 
@@ -344,199 +326,200 @@ main {
 
     position: absolute;
 
-    width: 90px;
-    height: 90px;
+    width: 100px;
+    height: 100px;
 
     border-radius: 50%;
 
-    background: var(--rosa-suave);
+    background: var(--rosa-suave, #f6e2de);
 
-    right: -35px;
-    top: -35px;
+    right: -40px;
+    top: -40px;
 
-    opacity: 0.7;
+    opacity: 0.8;
 }
 
 
 .icone {
     position: relative;
+    z-index: 2;
 
-    z-index: 1;
+    width: 60px;
+    height: 60px;
 
-    width: 50px;
-    height: 50px;
+    border-radius: 18px;
 
-    flex-shrink: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     background:
         linear-gradient(
             135deg,
-            var(--rosa-claro),
-            var(--rosa)
+            var(--rosa),
+            var(--rosa-claro)
         );
 
-    color: white;
-
-    border-radius: 50%;
-
-    display: flex;
-
-    justify-content: center;
-
-    align-items: center;
-
-    font-size: 22px;
+    font-size: 25px;
 
     box-shadow:
-        0 5px 15px rgba(196, 127, 122, 0.3);
-}
-
-
-.resumo-card div:last-child {
-    position: relative;
-
-    z-index: 1;
+        0 8px 20px rgba(201,133,130,0.25);
 }
 
 
 .resumo-card span {
     display: block;
 
-    color: var(--cinza);
+    color: var(--texto-claro);
 
     font-size: 13px;
 
-    margin-bottom: 4px;
+    margin-bottom: 5px;
 }
 
 
 .resumo-card strong {
     display: block;
 
-    color: var(--marrom);
+    font-family: Georgia, "Times New Roman", serif;
 
-    font-family: Georgia, serif;
+    font-size: 32px;
+
+    color: var(--marrom);
+}
+
+
+/* =========================================
+   CARDS PRINCIPAIS
+   ========================================= */
+
+.card {
+    background: rgba(255,255,255,0.96);
+
+    border: 1px solid rgba(196,154,85,0.18);
+
+    border-radius: var(--raio);
+
+    padding: 32px;
+
+    margin-bottom: 25px;
+
+    box-shadow: var(--sombra);
+
+    transition: 0.3s ease;
+}
+
+
+.card:hover {
+    box-shadow: var(--sombra-forte);
+}
+
+
+.titulo-secao {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 25px;
+}
+
+
+.mini-titulo {
+    display: block;
+
+    color: var(--dourado);
+
+    font-size: 11px;
+
+    font-weight: bold;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 6px;
+}
+
+
+.titulo-secao h2 {
+    font-family: Georgia, "Times New Roman", serif;
+
+    color: var(--marrom);
 
     font-size: 27px;
 }
 
 
 /* =========================================
-   CARDS
-========================================= */
-
-.card {
-    background:
-        rgba(255, 255, 255, 0.96);
-
-    padding: 30px;
-
-    border-radius: 20px;
-
-    margin-bottom: 20px;
-
-    border: 1px solid rgba(234, 219, 211, 0.9);
-
-    box-shadow:
-        0 10px 30px rgba(75, 41, 35, 0.08);
-}
-
-
-.titulo-secao {
-    margin-bottom: 23px;
-}
-
-
-.mini-titulo {
-    color: var(--dourado);
-
-    font-size: 10px;
-
-    font-weight: bold;
-
-    letter-spacing: 2px;
-}
-
-
-.titulo-secao h2 {
-    font-family: Georgia, serif;
-
-    color: var(--marrom);
-
-    font-size: 25px;
-
-    margin-top: 5px;
-}
-
-
-/* =========================================
    FORMULÁRIO
-========================================= */
+   ========================================= */
 
 .campo {
-    margin-bottom: 17px;
+    margin-bottom: 18px;
 }
 
 
 .campo label {
     display: block;
 
-    margin-bottom: 7px;
-
     color: var(--marrom);
 
-    font-size: 14px;
-
     font-weight: bold;
+
+    font-size: 13px;
+
+    margin-bottom: 8px;
 }
 
 
-input,
-textarea {
+.campo input,
+.campo textarea {
     width: 100%;
 
-    padding: 14px;
+    border: 1px solid #e4d2c8;
 
-    border: 1px solid var(--borda);
-
-    border-radius: 11px;
-
-    background: #fffdfc;
+    background: #fffaf7;
 
     color: var(--texto);
 
-    font-family: Arial, sans-serif;
+    border-radius: 13px;
 
-    font-size: 15px;
+    padding: 14px 16px;
 
-    transition:
-        border-color 0.2s,
-        box-shadow 0.2s,
-        transform 0.2s;
-}
+    font-size: 14px;
 
-
-input:hover,
-textarea:hover {
-    border-color: var(--rosa-claro);
-}
-
-
-input:focus,
-textarea:focus {
     outline: none;
 
-    border-color: var(--rosa);
-
-    box-shadow:
-        0 0 0 4px rgba(196, 127, 122, 0.12);
+    transition: 0.25s ease;
 }
 
 
-textarea {
+.campo input {
+    height: 50px;
+}
+
+
+.campo textarea {
     min-height: 110px;
 
     resize: vertical;
+}
+
+
+.campo input::placeholder,
+.campo textarea::placeholder {
+    color: #aa9289;
+}
+
+
+.campo input:focus,
+.campo textarea:focus {
+    border-color: var(--dourado);
+
+    background: white;
+
+    box-shadow:
+        0 0 0 4px rgba(196,154,85,0.10);
 }
 
 
@@ -545,32 +528,28 @@ textarea {
 
     grid-template-columns: 1fr 1fr;
 
-    gap: 15px;
+    gap: 18px;
 }
 
 
 /* =========================================
    BOTÃO
-========================================= */
+   ========================================= */
 
 .botao-principal {
-    position: relative;
-
-    overflow: hidden;
-
     width: 100%;
-
-    padding: 15px;
 
     border: none;
 
-    border-radius: 11px;
+    border-radius: 14px;
+
+    padding: 16px;
 
     background:
         linear-gradient(
             135deg,
-            var(--marrom),
-            #6b3b32
+            var(--marrom-escuro),
+            var(--marrom)
         );
 
     color: white;
@@ -581,45 +560,34 @@ textarea {
 
     cursor: pointer;
 
-    transition:
-        transform 0.2s,
-        box-shadow 0.2s;
+    box-shadow:
+        0 8px 20px rgba(75,41,35,0.20);
+
+    transition: 0.25s ease;
 }
 
 
-.botao-principal::before {
-    content: "";
+.botao-principal span {
+    font-size: 20px;
 
-    position: absolute;
+    vertical-align: middle;
 
-    top: 0;
-    left: -100%;
-
-    width: 60%;
-    height: 100%;
-
-    background:
-        linear-gradient(
-            90deg,
-            transparent,
-            rgba(255,255,255,0.22),
-            transparent
-        );
-
-    transition: left 0.5s;
-}
-
-
-.botao-principal:hover::before {
-    left: 130%;
+    margin-right: 5px;
 }
 
 
 .botao-principal:hover {
-    transform: translateY(-2px);
+    transform: translateY(-3px);
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--marrom),
+            var(--marrom-claro)
+        );
 
     box-shadow:
-        0 9px 22px rgba(75, 41, 35, 0.25);
+        0 12px 25px rgba(75,41,35,0.28);
 }
 
 
@@ -628,17 +596,10 @@ textarea {
 }
 
 
-.botao-principal span {
-    color: var(--dourado-claro);
-
-    font-size: 18px;
-}
-
-
 .botao-principal:disabled {
     opacity: 0.6;
 
-    cursor: not-allowed;
+    cursor: wait;
 
     transform: none;
 }
@@ -646,7 +607,7 @@ textarea {
 
 /* =========================================
    PESQUISA
-========================================= */
+   ========================================= */
 
 .pesquisa-container {
     display: flex;
@@ -655,137 +616,159 @@ textarea {
 
     gap: 10px;
 
-    background:
-        linear-gradient(
-            135deg,
-            #fffaf8,
-            #fff5f1
-        );
+    background: #fffaf7;
 
-    border: 1px solid var(--borda);
+    border: 1px solid #e4d2c8;
 
-    border-radius: 11px;
+    border-radius: 14px;
 
-    padding: 0 14px;
+    padding: 0 16px;
 
-    margin-bottom: 20px;
+    margin-bottom: 22px;
 
-    transition: 0.2s;
+    transition: 0.25s ease;
 }
 
 
 .pesquisa-container:focus-within {
-    border-color: var(--rosa);
+    border-color: var(--dourado);
 
     box-shadow:
-        0 0 0 4px rgba(196, 127, 122, 0.10);
+        0 0 0 4px rgba(196,154,85,0.10);
 }
 
 
 .pesquisa-container span {
-    color: var(--rosa);
+    font-size: 23px;
 
-    font-size: 25px;
+    color: var(--dourado);
 }
 
 
 .pesquisa-container input {
+    width: 100%;
+
+    height: 50px;
+
     border: none;
+
+    outline: none;
 
     background: transparent;
 
-    box-shadow: none;
+    font-size: 14px;
 
-    padding-left: 0;
+    color: var(--texto);
 }
 
 
-.pesquisa-container input:focus {
-    box-shadow: none;
-
-    border: none;
+.pesquisa-container input::placeholder {
+    color: #aa9289;
 }
 
 
 /* =========================================
    CLIENTES
-========================================= */
+   ========================================= */
+
+#listaClientes {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 16px;
+}
+
 
 .cliente {
     position: relative;
 
-    border: 1px solid var(--borda);
+    background:
+        linear-gradient(
+            145deg,
+            #fff,
+            #fff8f4
+        );
 
-    border-left: 4px solid var(--rosa);
+    border: 1px solid #ead8cf;
 
-    border-radius: 12px;
+    border-radius: 18px;
 
-    padding: 18px;
+    padding: 20px;
 
-    margin-bottom: 12px;
+    transition: 0.25s ease;
+
+    overflow: hidden;
+}
+
+
+.cliente::before {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    top: 0;
+    bottom: 0;
+
+    width: 4px;
 
     background:
         linear-gradient(
-            135deg,
-            #fffdfc,
-            #fff7f4
+            var(--rosa),
+            var(--dourado)
         );
-
-    transition:
-        transform 0.2s,
-        box-shadow 0.2s;
 }
 
 
 .cliente:hover {
-    transform: translateX(4px);
+    transform: translateY(-4px);
+
+    border-color: var(--dourado-claro);
 
     box-shadow:
-        0 7px 20px rgba(75, 41, 35, 0.09);
+        0 12px 25px rgba(65,35,27,0.10);
 }
 
 
 .cliente h3 {
+    font-family: Georgia, "Times New Roman", serif;
+
     color: var(--marrom);
 
-    font-family: Georgia, serif;
+    font-size: 20px;
 
-    font-size: 19px;
-
-    margin-bottom: 9px;
+    margin-bottom: 12px;
 }
 
 
 .cliente p {
-    color: var(--cinza);
+    color: var(--texto-claro);
 
-    font-size: 14px;
+    font-size: 13px;
 
-    margin: 6px 0;
+    line-height: 1.6;
+
+    margin: 5px 0;
 }
 
 
 /* =========================================
-   VAZIO
-========================================= */
+   ESTADO VAZIO
+   ========================================= */
 
 .vazio {
     text-align: center;
 
-    color: var(--cinza);
+    padding: 35px 20px;
 
-    padding: 28px;
+    color: #9a8177;
 
-    background:
-        linear-gradient(
-            135deg,
-            var(--bege),
-            #fff8f4
-        );
+    background: #fffaf7;
 
-    border-radius: 12px;
+    border: 1px dashed #dcc6ba;
 
-    border: 1px dashed var(--nude);
+    border-radius: 16px;
 
     font-size: 14px;
 }
@@ -793,72 +776,71 @@ textarea {
 
 /* =========================================
    RODAPÉ
-========================================= */
+   ========================================= */
 
 footer {
     text-align: center;
 
-    padding: 32px 20px;
-
     background:
         linear-gradient(
             135deg,
-            var(--marrom-escuro),
-            var(--marrom)
+            #291613,
+            #4b2923
         );
 
-    color: #d8cbc4;
+    color: #ead9d1;
+
+    padding: 35px 20px;
+
+    border-top: 3px solid var(--dourado);
 }
 
 
 .logo-footer {
+    font-size: 23px;
+
     margin-bottom: 8px;
 }
 
 
-.logo-footer span {
-    font-size: 18px;
-}
-
-
-.logo-footer strong {
-    font-size: 22px;
-}
-
-
 footer p {
-    font-size: 12px;
+    font-size: 13px;
 
-    color: #b8aaa3;
+    color: #cdb8af;
 }
 
 
 /* =========================================
-   ANIMAÇÃO
-========================================= */
+   ANIMAÇÕES
+   ========================================= */
 
-@keyframes brilho {
+@keyframes aparecer {
 
-    0%,
-    100% {
-        transform: scale(1) rotate(0deg);
-
-        opacity: 0.35;
+    from {
+        opacity: 0;
+        transform: translateY(15px);
     }
 
-    50% {
-        transform: scale(1.15) rotate(10deg);
-
-        opacity: 0.7;
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
+
+}
+
+
+.boas-vindas,
+.resumo,
+.card {
+    animation: aparecer 0.6s ease both;
 }
 
 
 /* =========================================
-   CELULAR
-========================================= */
+   RESPONSIVO
+   ========================================= */
 
-@media (max-width: 700px) {
+@media (max-width: 750px) {
 
     main {
         width: 94%;
@@ -868,73 +850,46 @@ footer p {
 
 
     .topo {
-        padding: 22px 15px;
+        padding: 25px 15px 30px;
     }
 
 
-    .logo span {
-        font-size: 21px;
-    }
-
-
-    .logo strong {
-        font-size: 26px;
-    }
-
-
-    .boas-vindas {
-        padding: 25px;
-
-        border-radius: 17px;
-    }
-
-
-    .boas-vindas h1 {
+    .logo {
         font-size: 25px;
     }
 
 
-    .boas-vindas::after {
-        right: 20px;
+    .boas-vindas {
+        padding: 28px 22px;
+    }
 
-        font-size: 35px;
+
+    .boas-vindas h1 {
+        font-size: 30px;
+    }
+
+
+    .boas-vindas::after {
+        right: 15px;
+
+        font-size: 50px;
     }
 
 
     .resumo {
-        gap: 10px;
-    }
+        grid-template-columns: 1fr;
 
-
-    .resumo-card {
-        padding: 15px;
-
-        gap: 10px;
-    }
-
-
-    .icone {
-        width: 42px;
-        height: 42px;
-
-        font-size: 18px;
-    }
-
-
-    .resumo-card strong {
-        font-size: 22px;
+        gap: 12px;
     }
 
 
     .card {
-        padding: 21px;
-
-        border-radius: 16px;
+        padding: 23px 18px;
     }
 
 
     .titulo-secao h2 {
-        font-size: 21px;
+        font-size: 23px;
     }
 
 
@@ -944,15 +899,51 @@ footer p {
         gap: 0;
     }
 
+
+    #listaClientes {
+        grid-template-columns: 1fr;
+    }
+
+
+    .resumo-card {
+        padding: 18px;
+    }
+
+
+    .icone {
+        width: 52px;
+        height: 52px;
+    }
+
 }
 
 
-@media (max-width: 400px) {
+@media (max-width: 450px) {
 
-    .resumo-card {
-        flex-direction: column;
+    .boas-vindas h1 {
+        font-size: 26px;
+    }
 
-        align-items: flex-start;
+
+    .boas-vindas p {
+        font-size: 14px;
+    }
+
+
+    .logo {
+        font-size: 22px;
+
+        letter-spacing: 2px;
+    }
+
+
+    .resumo-card strong {
+        font-size: 28px;
+    }
+
+
+    .card {
+        border-radius: 18px;
     }
 
 }
