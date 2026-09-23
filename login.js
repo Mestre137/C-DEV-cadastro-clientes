@@ -1,5 +1,5 @@
-const SUPABASE_URL = "SUA_URL_REAL_DO_SUPABASE";
-const SUPABASE_PUBLISHABLE_KEY = "SUA_CHAVE_PUBLISHABLE_REAL";
+const SUPABASE_URL = "https://zyynuqvhwuwgvgwrnxao.supabase.co";
+const SUPABASE_PUBLISHABLE_KEY = "sb_publishable_tIaPCpRF3j-GcxSauLrg4g_FLW53qdL";
 
 const supabaseClient = window.supabase.createClient(
     SUPABASE_URL,
@@ -55,6 +55,6 @@ loginForm.addEventListener("submit", async function(event) {
     console.log("Login realizado com sucesso!");
 
     setTimeout(function() {
-        window.location.href = "index.html";
+        window.location.href = "../index.html";
     }, 500);
 });
