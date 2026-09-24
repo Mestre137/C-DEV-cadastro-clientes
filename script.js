@@ -15,25 +15,19 @@ const supabaseClient = window.supabase.createClient(
 // LOGOUT
 // ==========================================
 
-const botaoSair =
-    document.getElementById("botaoSair");
+const botaoSair = document.getElementById("botaoSair");
 
+botaoSair.addEventListener("click", async function() {
 
-if (botaoSair) {
+    const { error } = await supabaseClient.auth.signOut();
 
-    botaoSair.addEventListener(
-        "click",
-        async function() {
+    if (error) {
+        console.error("Erro ao sair:", error);
+        return;
+    }
 
-            await supabaseClient.auth.signOut();
-
-            window.location.href =
-                "login.html";
-
-        }
-    );
-
-}
+    window.location.href = "login/login.html";
+});
 
 // ==========================================
 // PROTEGER ÁREA DE CLIENTES
@@ -50,10 +44,10 @@ async function protegerPagina() {
 
     if (!session) {
 
-        window.location.href = "login.html";
+    window.location.href = "login/login.html";
 
-        return false;
-    }
+    return false;
+}
 
 
     return true;

@@ -945,5 +945,22 @@ footer p {
     .card {
         border-radius: 18px;
     }
+	
+	.botao-sair {
+    margin-left: auto;
+    padding: 10px 20px;
+    border: 1px solid var(--dourado);
+    border-radius: 10px;
+    background: transparent;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.botao-sair:hover {
+    background: var(--dourado);
+    color: var(--marrom-escuro);
+}
 
 }
