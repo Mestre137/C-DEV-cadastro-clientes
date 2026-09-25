@@ -1,0 +1,403 @@
+:root {
+    --marrom-escuro: #241411;
+    --marrom: #4b2923;
+    --rosa: #c98582;
+    --rosa-claro: #e9b9b3;
+    --bege: #fbf4ed;
+    --dourado: #c49a55;
+    --dourado-claro: #e5c98d;
+    --texto: #39231f;
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+
+    min-height: 100vh;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    background:
+        radial-gradient(
+            circle at 20% 20%,
+            rgba(229, 201, 141, 0.25),
+            transparent 30%
+        ),
+
+        radial-gradient(
+            circle at 80% 80%,
+            rgba(201, 133, 130, 0.20),
+            transparent 30%
+        ),
+
+        linear-gradient(
+            135deg,
+            #f4e1d7,
+            #fff9f5
+        );
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding: 20px;
+}
+
+
+/* ==================================
+   CONTAINER
+   ================================== */
+
+.login-container {
+
+    width: 100%;
+
+    max-width: 440px;
+
+}
+
+
+/* ==================================
+   CARD
+   ================================== */
+
+.login-card {
+
+    background:
+        rgba(255, 255, 255, 0.96);
+
+    border-radius: 28px;
+
+    padding: 42px 38px;
+
+    border:
+        1px solid
+        rgba(196, 154, 85, 0.25);
+
+    box-shadow:
+        0 25px 60px
+        rgba(75, 41, 35, 0.18);
+
+    text-align: center;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+
+.login-card::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 180px;
+
+    height: 180px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(201, 133, 130, 0.10);
+
+    top: -90px;
+
+    left: -70px;
+}
+
+
+.login-card::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 160px;
+
+    height: 160px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(196, 154, 85, 0.10);
+
+    bottom: -80px;
+
+    right: -60px;
+}
+
+
+/* ==================================
+   LOGO
+   ================================== */
+
+.logo {
+
+    position: relative;
+
+    z-index: 2;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 31px;
+
+    letter-spacing: 3px;
+
+    color: var(--marrom);
+}
+
+
+.logo strong {
+
+    color: var(--dourado);
+
+}
+
+
+.subtitulo {
+
+    position: relative;
+
+    z-index: 2;
+
+    color: #806b63;
+
+    font-size: 13px;
+
+    letter-spacing: 1.5px;
+
+    margin-top: 7px;
+}
+
+
+/* ==================================
+   DECORAÇÃO
+   ================================== */
+
+.decoracao {
+
+    color: var(--dourado);
+
+    font-size: 32px;
+
+    margin: 25px 0 8px;
+}
+
+
+/* ==================================
+   TÍTULO
+   ================================== */
+
+h1 {
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    color: var(--marrom);
+
+    font-size: 32px;
+
+    margin-bottom: 8px;
+}
+
+
+.descricao {
+
+    color: #806b63;
+
+    font-size: 14px;
+
+    margin-bottom: 28px;
+}
+
+
+/* ==================================
+   CAMPOS
+   ================================== */
+
+.campo {
+
+    text-align: left;
+
+    margin-bottom: 18px;
+}
+
+
+.campo label {
+
+    display: block;
+
+    font-size: 13px;
+
+    font-weight: bold;
+
+    color: var(--marrom);
+
+    margin-bottom: 8px;
+}
+
+
+.campo input {
+
+    width: 100%;
+
+    height: 52px;
+
+    padding: 0 16px;
+
+    border-radius: 13px;
+
+    border:
+        1px solid
+        #dfccc1;
+
+    background: #fffaf7;
+
+    color: var(--texto);
+
+    font-size: 14px;
+
+    outline: none;
+
+    transition: 0.25s;
+}
+
+
+.campo input:focus {
+
+    border-color:
+        var(--dourado);
+
+    background: white;
+
+    box-shadow:
+        0 0 0 4px
+        rgba(196, 154, 85, 0.10);
+}
+
+
+/* ==================================
+   BOTÃO
+   ================================== */
+
+#botaoLogin {
+
+    width: 100%;
+
+    height: 54px;
+
+    margin-top: 8px;
+
+    border: none;
+
+    border-radius: 14px;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--marrom-escuro),
+            var(--marrom)
+        );
+
+    color: white;
+
+    font-size: 15px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.25s;
+
+    box-shadow:
+        0 10px 25px
+        rgba(75, 41, 35, 0.20);
+}
+
+
+#botaoLogin:hover {
+
+    transform: translateY(-3px);
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--marrom),
+            #70443a
+        );
+
+    box-shadow:
+        0 14px 30px
+        rgba(75, 41, 35, 0.28);
+}
+
+
+#botaoLogin:disabled {
+
+    opacity: 0.6;
+
+    cursor: wait;
+
+    transform: none;
+}
+
+
+/* ==================================
+   MENSAGEM
+   ================================== */
+
+.mensagem {
+
+    min-height: 20px;
+
+    margin-top: 15px;
+
+    font-size: 13px;
+
+    color: #a33b35;
+}
+
+
+/* ==================================
+   MOBILE
+   ================================== */
+
+@media (max-width: 500px) {
+
+    .login-card {
+
+        padding: 35px 24px;
+
+        border-radius: 22px;
+    }
+
+
+    .logo {
+
+        font-size: 26px;
+    }
+
+
+    h1 {
+
+        font-size: 28px;
+    }
+
+}

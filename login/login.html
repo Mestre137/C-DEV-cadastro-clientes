@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Morena Jey | Login</title>
+
+    <link rel="stylesheet" href="style-login.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+
+<body>
+
+    <main class="login-container">
+
+        <section class="login-card">
+
+            <div class="logo">
+                <span>MORENA</span>
+                <strong>JEY</strong>
+            </div>
+
+            <p class="subtitulo">
+                Clientes & Atendimento
+            </p>
+
+            <div class="decoracao">
+                ✦
+            </div>
+
+            <h1>Bem-vinda!</h1>
+
+            <p class="descricao">
+                Entre para acessar o painel de clientes.
+            </p>
+
+
+            <form id="loginForm">
+
+                <div class="campo">
+
+                    <label for="email">
+                        E-mail
+                    </label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        placeholder="Digite seu e-mail"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="campo">
+
+                    <label for="senha">
+                        Senha
+                    </label>
+
+                    <input
+                        type="password"
+                        id="senha"
+                        placeholder="Digite sua senha"
+                        required
+                    >
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    id="botaoLogin"
+                >
+                    Entrar
+                </button>
+
+
+                <p
+                    id="mensagem"
+                    class="mensagem"
+                ></p>
+
+            </form>
+
+        </section>
+
+    </main>
+
+
+    <script src="login.js"></script>
+
+</body>
+
+</html>
