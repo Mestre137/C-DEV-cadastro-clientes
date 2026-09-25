@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Morena Jey | Clientes</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+</head>
+
+<body>
+
+    <!-- CABEÇALHO -->
+
+    <header class="topo">
+
+        <div class="logo">
+            <span>MORENA</span>
+            <strong>JEY</strong>
+        </div>
+
+        <nav class="menu">
+
+            <a href="index.html">
+                Cadastro
+            </a>
+
+            <a href="clientes.html" class="ativo">
+                Clientes
+            </a>
+
+            <button id="botaoSair">
+                Sair
+            </button>
+
+        </nav>
+
+    </header>
+
+
+    <!-- CONTEÚDO -->
+
+    <main class="container">
+
+        <section class="cabecalho-pagina">
+
+            <div>
+
+                <span class="etiqueta">
+                    MORENA JEY
+                </span>
+
+                <h1>
+                    Clientes
+                </h1>
+
+                <p>
+                    Consulte e pesquise suas clientes cadastradas.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- RESUMO -->
+
+        <section class="resumo">
+
+            <div class="resumo-card">
+
+                <span>
+                    Total de clientes
+                </span>
+
+                <strong id="totalClientes">
+                    0
+                </strong>
+
+            </div>
+
+            <div class="resumo-card">
+
+                <span>
+                    Cadastros realizados
+                </span>
+
+                <strong id="totalCadastros">
+                    0
+                </strong>
+
+            </div>
+
+        </section>
+
+
+        <!-- PESQUISA -->
+
+        <section class="pesquisa-area">
+
+            <input
+                type="text"
+                id="pesquisa"
+                placeholder="🔎 Pesquisar cliente pelo nome..."
+            >
+
+        </section>
+
+
+        <!-- LISTA -->
+
+        <section class="clientes-area">
+
+            <div id="listaClientes">
+
+                <p class="vazio">
+                    Carregando clientes...
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- RODAPÉ -->
+
+    <footer>
+
+        <p>
+            © 2026 Morena Jey — Clientes & Atendimento
+        </p>
+
+    </footer>
+
+
+    <script src="clientes.js"></script>
+
+</body>
+
+</html>

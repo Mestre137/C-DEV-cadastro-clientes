@@ -1,6 +1,24 @@
 <!DOCTYPE html>
+<html lang="pt-BR">
 
-<!-- CABEÇALHO -->
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Morena Jey | Cadastro</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Supabase -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+</head>
+
+<body>
+
+    <!-- CABEÇALHO -->
     <header class="topo">
 
         <div class="logo">
@@ -9,29 +27,34 @@
         </div>
 
         <p>Clientes & Atendimento</p>
-		
-		<button id="botaoSair" class="botao-sair">Sair</button>
+
+        <!-- MENU -->
+        <nav class="menu">
+
+    <a
+        href="index.html"
+        class="botao-menu ativo"
+    >
+        Cadastro
+    </a>
+
+    <a
+        href="clientes.html"
+        class="botao-menu"
+    >
+        Clientes
+    </a>
+
+    <button
+        id="botaoSair"
+        class="botao-menu botao-sair"
+    >
+        Sair
+    </button>
+
+</nav>
 
     </header>
-
-<html lang="pt-BR">
-
-<head>
-    <meta charset="UTF-8">
-
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Morena Jey | Clientes</title>
-
-    <link rel="stylesheet" href="style.css">
-
-    <!-- Supabase -->
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-</head>
-
-<body>
-
-    
 
 
     <!-- CONTEÚDO PRINCIPAL -->
@@ -41,7 +64,10 @@
         <section class="boas-vindas">
 
             <div>
-                <span class="tag">GESTÃO DE CLIENTES</span>
+
+                <span class="tag">
+                    GESTÃO DE CLIENTES
+                </span>
 
                 <h1>
                     Olá! Seja bem-vinda. ✨
@@ -51,6 +77,7 @@
                     Cadastre suas clientes e mantenha
                     suas informações organizadas.
                 </p>
+
             </div>
 
         </section>
@@ -66,8 +93,15 @@
                 </div>
 
                 <div>
-                    <span>Clientes</span>
-                    <strong id="totalClientes">0</strong>
+
+                    <span>
+                        Clientes
+                    </span>
+
+                    <strong id="totalClientes">
+                        0
+                    </strong>
+
                 </div>
 
             </div>
@@ -80,8 +114,15 @@
                 </div>
 
                 <div>
-                    <span>Cadastros</span>
-                    <strong id="totalCadastros">0</strong>
+
+                    <span>
+                        Cadastros
+                    </span>
+
+                    <strong id="totalCadastros">
+                        0
+                    </strong>
+
                 </div>
 
             </div>
@@ -95,6 +136,7 @@
             <div class="titulo-secao">
 
                 <div>
+
                     <span class="mini-titulo">
                         NOVO CADASTRO
                     </span>
@@ -102,6 +144,7 @@
                     <h2>
                         Cadastrar cliente
                     </h2>
+
                 </div>
 
             </div>
@@ -109,6 +152,7 @@
 
             <form id="clienteForm">
 
+                <!-- NOME -->
                 <div class="campo">
 
                     <label for="nome">
@@ -125,6 +169,7 @@
                 </div>
 
 
+                <!-- TELEFONE + EMAIL -->
                 <div class="duas-colunas">
 
                     <div class="campo">
@@ -159,6 +204,7 @@
                 </div>
 
 
+                <!-- CIDADE -->
                 <div class="campo">
 
                     <label for="cidade">
@@ -174,6 +220,7 @@
                 </div>
 
 
+                <!-- OBSERVAÇÕES -->
                 <div class="campo">
 
                     <label for="observacoes">
@@ -188,58 +235,19 @@
                 </div>
 
 
-                <button type="submit" class="botao-principal">
+                <!-- BOTÃO -->
+                <button
+                    type="submit"
+                    class="botao-principal"
+                >
 
                     <span>＋</span>
+
                     Cadastrar cliente
 
                 </button>
 
             </form>
-
-        </section>
-
-
-        <!-- LISTA DE CLIENTES -->
-        <section class="card clientes-card">
-
-            <div class="titulo-secao">
-
-                <div>
-
-                    <span class="mini-titulo">
-                        MINHAS CLIENTES
-                    </span>
-
-                    <h2>
-                        Clientes cadastradas
-                    </h2>
-
-                </div>
-
-            </div>
-
-
-            <div class="pesquisa-container">
-
-                <span>⌕</span>
-
-                <input
-                    type="text"
-                    id="pesquisa"
-                    placeholder="Pesquisar cliente..."
-                >
-
-            </div>
-
-
-            <div id="listaClientes">
-
-                <p class="vazio">
-                    Nenhuma cliente cadastrada.
-                </p>
-
-            </div>
 
         </section>
 
@@ -250,8 +258,11 @@
     <footer>
 
         <div class="logo logo-footer">
+
             <span>MORENA</span>
+
             <strong>JEY</strong>
+
         </div>
 
         <p>
