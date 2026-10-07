@@ -1,0 +1,290 @@
+/* =========================================================
+   MORENA JEY - ESTILOS EXCLUSIVOS DA PÁGINA COMPRAS
+   O visual principal vem de ../style.css
+   ========================================================= */
+
+select {
+    width: 100%;
+    height: 50px;
+    border: 1px solid #e4d2c8;
+    background: #fffaf7;
+    color: var(--texto);
+    border-radius: 13px;
+    padding: 0 16px;
+    font-size: 14px;
+    outline: none;
+}
+
+select:focus {
+    border-color: var(--dourado);
+    background: white;
+    box-shadow: 0 0 0 4px rgba(196,154,85,0.10);
+}
+
+.produtos-titulo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    margin: 10px 0 18px;
+}
+
+.produtos-titulo h3 {
+    color: var(--marrom);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 21px;
+}
+
+.botao-secundario {
+    border: 1px solid var(--dourado);
+    border-radius: 10px;
+    background: transparent;
+    color: var(--marrom);
+    padding: 10px 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.25s ease;
+}
+
+.botao-secundario:hover {
+    background: var(--dourado);
+    color: var(--marrom-escuro);
+}
+
+.produto-linha {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 90px 130px 40px;
+    gap: 12px;
+    align-items: end;
+    padding: 17px;
+    margin-bottom: 12px;
+    background: #fffaf7;
+    border: 1px solid #ead8cf;
+    border-radius: 16px;
+}
+
+.produto-linha .campo {
+    margin-bottom: 0;
+}
+
+.remover-produto {
+    width: 38px;
+    height: 38px;
+    border: none;
+    border-radius: 10px;
+    background: #f4d7d3;
+    color: var(--marrom);
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.remover-produto:hover {
+    background: var(--rosa);
+    color: white;
+}
+
+.pagamento-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 16px;
+    align-items: end;
+    margin: 22px 0;
+}
+
+.total-box {
+    min-height: 80px;
+    padding: 15px 18px;
+    border-radius: 15px;
+    background: linear-gradient(135deg, #fff8f4, #f6e7df);
+    border: 1px solid rgba(196,154,85,0.22);
+}
+
+.total-box span {
+    display: block;
+    color: var(--texto-claro);
+    font-size: 12px;
+    margin-bottom: 7px;
+}
+
+.total-box strong {
+    color: var(--marrom);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 23px;
+}
+
+.mensagem-compra {
+    min-height: 20px;
+    margin-top: 13px;
+    text-align: center;
+    color: #28733d;
+    font-size: 13px;
+}
+
+.mensagem-compra.erro {
+    color: #a33b35;
+}
+
+.lista-pedidos {
+    display: grid;
+    gap: 16px;
+}
+
+.pedido {
+    position: relative;
+    background: linear-gradient(145deg, #fff, #fff8f4);
+    border: 1px solid #ead8cf;
+    border-radius: 18px;
+    padding: 21px;
+    overflow: hidden;
+}
+
+.pedido::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: linear-gradient(var(--rosa), var(--dourado));
+}
+
+.pedido-topo {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 15px;
+}
+
+.pedido-topo h3 {
+    color: var(--marrom);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 22px;
+    margin: 2px 0 5px;
+}
+
+.data-pedido {
+    color: var(--texto-claro);
+    font-size: 13px;
+}
+
+.status {
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 12px;
+    border-radius: 50px;
+    font-size: 12px;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.status.pendente {
+    background: #f8e5c7;
+    color: #795321;
+}
+
+.status.feito {
+    background: #dcefdc;
+    color: #286235;
+}
+
+.itens-pedido {
+    margin: 18px 0;
+    border-top: 1px solid #eee0d8;
+    border-bottom: 1px solid #eee0d8;
+}
+
+.item-pedido {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    padding: 11px 0;
+    color: var(--texto-claro);
+    font-size: 13px;
+}
+
+.item-pedido strong {
+    display: inline-block;
+    color: var(--marrom);
+    margin-right: 8px;
+}
+
+.item-pedido div span {
+    color: #9a8177;
+}
+
+.resumo-pedido {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-bottom: 17px;
+}
+
+.resumo-pedido div {
+    background: #fffaf7;
+    border-radius: 12px;
+    padding: 11px 13px;
+    border: 1px solid #eee0d8;
+}
+
+.resumo-pedido span {
+    display: block;
+    color: var(--texto-claro);
+    font-size: 11px;
+    margin-bottom: 4px;
+}
+
+.resumo-pedido strong {
+    color: var(--marrom);
+    font-size: 15px;
+}
+
+.botao-feito {
+    width: 100%;
+    border: none;
+    border-radius: 12px;
+    padding: 13px;
+    background: linear-gradient(135deg, var(--marrom-escuro), var(--marrom));
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.25s ease;
+}
+
+.botao-feito:hover {
+    transform: translateY(-2px);
+    background: linear-gradient(135deg, var(--marrom), var(--marrom-claro));
+}
+
+@media (max-width: 850px) {
+    .produto-linha {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .remover-produto {
+        width: 100%;
+    }
+
+    .pagamento-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    .produtos-titulo,
+    .pedido-topo {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .produto-linha {
+        grid-template-columns: 1fr;
+    }
+
+    .resumo-pedido {
+        grid-template-columns: 1fr;
+    }
+
+    .status {
+        width: fit-content;
+    }
+}
