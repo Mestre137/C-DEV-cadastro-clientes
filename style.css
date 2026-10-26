@@ -1117,4 +1117,77 @@ footer p {
     margin-left: 0;
 }
 
+
+/* ===== AJUSTES PARA CELULAR - MORENA JEY ===== */
+
+@media (max-width: 600px) {
+    * {
+        box-sizing: border-box;
+    }
+
+    html,
+    body {
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+
+    .topo {
+        width: 100%;
+        padding: 22px 12px !important;
+    }
+
+    .menu {
+        display: grid !important;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px;
+        width: 100%;
+        max-width: 320px;
+        margin: 14px auto 0;
+        padding: 0;
+    }
+
+    .botao-menu {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        min-width: 0;
+        min-height: 42px;
+        padding: 9px 5px;
+        margin: 0;
+        text-align: center;
+        white-space: normal;
+        font-size: 13px;
+    }
+
+    main,
+    .container {
+        width: calc(100% - 24px);
+        max-width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .resumo {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 12px;
+    }
+
+    .resumo-card,
+    .cabecalho-pagina,
+    .clientes-area,
+    .pesquisa-area {
+        min-width: 0;
+        max-width: 100%;
+    }
+
+    input,
+    textarea,
+    select {
+        max-width: 100%;
+        min-width: 0;
+    }
+}
+
+
 }
