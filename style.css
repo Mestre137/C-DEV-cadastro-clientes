@@ -1217,6 +1217,69 @@ footer p {
     cursor: not-allowed;
 }
 
+
+/* FILTRO DE CLIENTES */
+
+.filtro-status {
+    width: 100%;
+    padding: 13px;
+    margin-top: 12px;
+    border: 1px solid #e8cfc0;
+    border-radius: 12px;
+    background: #fbf4ed;
+    color: #241411;
+    font-size: 15px;
+    outline: none;
+}
+
+/* STATUS DA CLIENTE */
+
+.status-cliente {
+    display: inline-block;
+    padding: 6px 12px;
+    margin: 8px 0;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.status-ativa {
+    background: #e2f1e4;
+    color: #286438;
+}
+
+.status-inativa {
+    background: #f5e5e2;
+    color: #963f36;
+}
+
+/* BOTÕES DE STATUS */
+
+.botao-status {
+    display: inline-block;
+    padding: 10px 16px;
+    margin-top: 12px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.botao-inativar {
+    background: #f0d8d2;
+    color: #783d34;
+}
+
+.botao-reativar {
+    background: #dcebdd;
+    color: #286438;
+}
+
+.botao-status:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
 	
 }
 

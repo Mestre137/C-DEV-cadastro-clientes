@@ -28,6 +28,26 @@ let clientes = [];
 
 
 // ==========================================
+// FILTRO DE STATUS
+// ==========================================
+
+const filtroStatus = document.createElement("select");
+
+filtroStatus.id = "filtroStatus";
+filtroStatus.classList.add("filtro-status");
+
+filtroStatus.innerHTML = `
+    <option value="ativas">Clientes ativas</option>
+    <option value="inativas">Clientes inativas</option>
+    <option value="todas">Todas as clientes</option>
+`;
+
+pesquisa.parentElement.appendChild(filtroStatus);
+
+filtroStatus.addEventListener("change", pesquisarClientes);
+
+
+// ==========================================
 // PROTEGER PÁGINA
 // ==========================================
 
@@ -84,7 +104,11 @@ async function carregarClientes() {
 
 function atualizarResumo() {
 
-    totalClientes.textContent = clientes.length;
+    const clientesAtivas = clientes.filter(function(cliente) {
+        return cliente.ativo !== false;
+    });
+
+    totalClientes.textContent = clientesAtivas.length;
     totalCadastros.textContent = clientes.length;
 }
 
@@ -113,9 +137,15 @@ function mostrarClientes(lista) {
         const div = document.createElement("div");
         div.classList.add("cliente");
 
+        const ativa = cliente.ativo !== false;
+
         div.innerHTML = `
 
             <h3>${escaparHTML(cliente.nome)}</h3>
+
+            <span class="status-cliente ${ativa ? "status-ativa" : "status-inativa"}">
+                ${ativa ? "Cliente ativa" : "Cliente inativa"}
+            </span>
 
             <p>
                 📞 ${escaparHTML(cliente.telefone || "Não informado")}
@@ -141,19 +171,34 @@ function mostrarClientes(lista) {
 
         `;
 
-        // BOTÃO EXCLUIR
+        // BOTÃO INATIVAR OU REATIVAR
 
-        const botaoExcluir = document.createElement("button");
+        const botaoStatus = document.createElement("button");
 
-        botaoExcluir.type = "button";
-        botaoExcluir.textContent = "🗑️ Excluir cliente";
-        botaoExcluir.classList.add("botao-excluir");
+        botaoStatus.type = "button";
 
-        botaoExcluir.addEventListener("click", function() {
-            excluirCliente(cliente.id, cliente.nome, botaoExcluir);
+        botaoStatus.textContent = ativa
+            ? "Inativar cliente"
+            : "Reativar cliente";
+
+        botaoStatus.classList.add("botao-status");
+
+        botaoStatus.classList.add(
+            ativa ? "botao-inativar" : "botao-reativar"
+        );
+
+        botaoStatus.addEventListener("click", function() {
+
+            alterarStatusCliente(
+                cliente.id,
+                cliente.nome,
+                !ativa,
+                botaoStatus
+            );
+
         });
 
-        div.appendChild(botaoExcluir);
+        div.appendChild(botaoStatus);
 
         listaClientes.appendChild(div);
 
@@ -162,20 +207,22 @@ function mostrarClientes(lista) {
 
 
 // ==========================================
-// EXCLUIR CLIENTE
+// INATIVAR OU REATIVAR CLIENTE
 // ==========================================
 
-async function excluirCliente(id, nome, botao) {
+async function alterarStatusCliente(id, nome, novoStatus, botao) {
 
     if (!id) {
 
-        alert("Não foi possível identificar esta cliente. Verifique a coluna id no Supabase.");
+        alert("Não foi possível identificar esta cliente.");
 
         return;
     }
 
+    const acao = novoStatus ? "reativar" : "inativar";
+
     const confirmar = confirm(
-        `Tem certeza de que deseja excluir a cliente ${nome}?\n\nEssa ação não poderá ser desfeita.`
+        `Deseja realmente ${acao} a cliente ${nome}?`
     );
 
     if (!confirmar) {
@@ -183,55 +230,82 @@ async function excluirCliente(id, nome, botao) {
     }
 
     botao.disabled = true;
-    botao.textContent = "Excluindo...";
+    botao.textContent = "Atualizando...";
 
-    const { error } = await supabaseClient
+    const { data, error } = await supabaseClient
         .from("clientes")
-        .delete()
-        .eq("id", id);
+        .update({ ativo: novoStatus })
+        .eq("id", id)
+        .select("id, ativo")
+        .maybeSingle();
 
-    if (error) {
+    if (error || !data) {
 
-        console.error("Erro ao excluir cliente:", error);
+        console.error("Erro ao atualizar cliente:", error);
 
         botao.disabled = false;
-        botao.textContent = "🗑️ Excluir cliente";
+
+        botao.textContent = novoStatus
+            ? "Reativar cliente"
+            : "Inativar cliente";
 
         alert(
-            "Não foi possível excluir esta cliente.\n\n" +
-            "Verifique as permissões do Supabase e se existem compras vinculadas a ela."
+            "Não foi possível atualizar o status da cliente.\n\n" +
+            "Verifique sua conexão e as permissões do Supabase."
         );
 
         return;
     }
 
-    // Atualizar a lista local
+    // ATUALIZAR A LISTA LOCAL
 
-    clientes = clientes.filter(function(cliente) {
-        return cliente.id !== id;
+    clientes = clientes.map(function(cliente) {
+
+        if (cliente.id === id) {
+            return {
+                ...cliente,
+                ativo: novoStatus
+            };
+        }
+
+        return cliente;
+
     });
 
     atualizarResumo();
     pesquisarClientes();
 
-    alert("Cliente excluída com sucesso!");
+    alert(
+        novoStatus
+            ? "Cliente reativada com sucesso!"
+            : "Cliente inativada com sucesso!"
+    );
 }
 
 
 // ==========================================
-// PESQUISA
+// PESQUISA E FILTROS
 // ==========================================
 
 function pesquisarClientes() {
 
     const texto = pesquisa.value.toLowerCase().trim();
+    const statusSelecionado = filtroStatus.value;
 
     const resultado = clientes.filter(function(cliente) {
 
-        return (
+        const nomeCorresponde =
             cliente.nome &&
-            cliente.nome.toLowerCase().includes(texto)
-        );
+            cliente.nome.toLowerCase().includes(texto);
+
+        const ativa = cliente.ativo !== false;
+
+        const statusCorresponde =
+            statusSelecionado === "todas" ||
+            (statusSelecionado === "ativas" && ativa) ||
+            (statusSelecionado === "inativas" && !ativa);
+
+        return nomeCorresponde && statusCorresponde;
 
     });
 
