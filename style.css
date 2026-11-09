@@ -1187,6 +1187,37 @@ footer p {
         max-width: 100%;
         min-width: 0;
     }
+	
+	
+/* BOTÃO EXCLUIR CLIENTE */
+
+.botao-excluir {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 15px;
+    padding: 10px 18px;
+    border: 1px solid #c98582;
+    border-radius: 10px;
+    background: #fff4f2;
+    color: #9b4545;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.botao-excluir:hover {
+    background: #c98582;
+    color: white;
+}
+
+.botao-excluir:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+	
 }
 
 
